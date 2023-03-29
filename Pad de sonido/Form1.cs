@@ -141,6 +141,7 @@ namespace Pad_de_sonido
         #endregion
         public Form1()
         {
+
             InitializeComponent();
             #region canales
             // carga los canales en la combobox
