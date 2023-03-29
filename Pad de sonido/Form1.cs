@@ -71,17 +71,18 @@ namespace Pad_de_sonido
             {
                 Console.WriteLine("Error: " + ex.Message);
             }
-            lstSonidos.SelectedIndex = 0;
+            try { lstSonidos.SelectedIndex = 0; } catch { }
+            
         }
 
         public void cargaCarpetas() //Carga la lista de carpetas en la combobox
         {
             cmbCarpeta.Items.Clear();
+            cmbCarpeta.Items.Add("Todo");
+            cmbCarpeta.Items.Add("Sin categoria");
             try
             {
                 carpetas = Directory.GetDirectories(path).ToList();
-                cmbCarpeta.Items.Add("Todo");
-                cmbCarpeta.Items.Add("Sin categoria");
 
                 for (var i = 0; i < carpetas.Count; i++)
                 {
@@ -96,25 +97,28 @@ namespace Pad_de_sonido
 
         public void sonido() //Reproduce un sonido
         {
-            count = Convert.ToInt16(nmrContador.Value);
-            while (count > 0) //Si el contador esta activado entra en el bucle
+            if (lstSonidos.Items.Count > 0)
             {
-                Console.WriteLine(count);
-                count--;
-                nmrContador.Refresh();
-                Thread.Sleep(1000);
+                count = Convert.ToInt16(nmrContador.Value);
+                while (count > 0) //Si el contador esta activado entra en el bucle
+                {
+                    Console.WriteLine(count);
+                    count--;
+                    nmrContador.Refresh();
+                    Thread.Sleep(1000);
+                }
+
+                /*Selecciona el archivo de la listbox y lo ejecuta
+                    con el volumen y por el canal deceado */
+                var audioFile = rutaArchivo;
+                AudioFileReader sonido = new AudioFileReader(audioFile);
+                WaveOutEvent device = new WaveOutEvent();
+
+                device.DeviceNumber = canal;
+                device.Init(sonido);
+                sonido.Volume = ((float)trcVolumen.Value) / 100;
+                device.Play();
             }
-
-            /*Selecciona el archivo de la listbox y lo ejecuta
-                con el volumen y por el canal deceado */
-            var audioFile = rutaArchivo;
-            AudioFileReader sonido = new AudioFileReader(audioFile);
-            WaveOutEvent device = new WaveOutEvent();
-
-            device.DeviceNumber = canal;
-            device.Init(sonido);
-            sonido.Volume = ((float)trcVolumen.Value) / 100;
-            device.Play();
 
         }
 
@@ -185,7 +189,7 @@ namespace Pad_de_sonido
             cargaCarpetas();
             cmbCarpeta.SelectedIndex = 0;
             cargaLista(cmbCarpeta.Text);
-            lstSonidos.SelectedIndex = 0;
+            try { lstSonidos.SelectedIndex = 0; } catch { }
         }
 
         private void btnWtf_Click(object sender, EventArgs e)
@@ -275,7 +279,16 @@ namespace Pad_de_sonido
         {
             if (e.KeyCode == Keys.Enter)
             {
-                cargaLista(cmbCarpeta.Text, txtBuscar.Text);
+                try
+                {
+                    cargaLista(cmbCarpeta.Text, txtBuscar.Text);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    cmbCarpeta.SelectedIndex = 0;
+                    cargaLista(cmbCarpeta.Text, txtBuscar.Text);
+                }
                 txtBuscar.Text = "";
             }
         }
