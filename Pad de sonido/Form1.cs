@@ -310,13 +310,20 @@ namespace Pad_de_sonido
             #region carga de audacity
             try
             {
-                using (StreamReader sr = new StreamReader("audacity_direct.txt"))
+                if (lstSonidos.Items.Count > 0)
                 {
-                    rutaAudacity = sr.ReadLine();
+                    using (StreamReader sr = new StreamReader("audacity_direct.txt"))
+                    {
+                        rutaAudacity = sr.ReadLine();
+                    }
+                    ProcessStartInfo startInfo = new ProcessStartInfo(rutaAudacity);
+                    startInfo.Arguments = "\"" + rutaArchivo + "\"";
+                    Process.Start(startInfo);
                 }
-                ProcessStartInfo startInfo = new ProcessStartInfo(rutaAudacity);
-                startInfo.Arguments = "\"" + rutaArchivo + "\"";
-                Process.Start(startInfo);
+                else
+                {
+                    MessageBox.Show("No hay ninguna canción seleccionada");
+                }
             }
             catch
             {
