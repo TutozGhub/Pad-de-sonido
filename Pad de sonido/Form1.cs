@@ -280,16 +280,13 @@ namespace Pad_de_sonido
         {
             if (e.KeyCode == Keys.Enter)
             {
-                try
+                cargaLista(cmbCarpeta.Text, txtBuscar.Text);
+                if (lstSonidos.Items.Count < 1)
                 {
-                    cargaLista(cmbCarpeta.Text, txtBuscar.Text);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
                     cmbCarpeta.SelectedIndex = 0;
-                    cargaLista(cmbCarpeta.Text, txtBuscar.Text);
                 }
+
+                cargaLista(cmbCarpeta.Text, txtBuscar.Text);
                 txtBuscar.Text = "";
             }
         }
