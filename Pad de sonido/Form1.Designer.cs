@@ -34,7 +34,6 @@
             this.lstSonidos = new System.Windows.Forms.ListBox();
             this.trcVolumen = new System.Windows.Forms.TrackBar();
             this.lblVolumen = new System.Windows.Forms.Label();
-            this.btnCargar = new System.Windows.Forms.PictureBox();
             this.pctTroll = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.nmrContador = new System.Windows.Forms.NumericUpDown();
@@ -45,7 +44,6 @@
             this.btnEditar = new System.Windows.Forms.PictureBox();
             this.grpFiltros = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.trcVolumen)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCargar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctTroll)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmrContador)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctBoton)).BeginInit();
@@ -57,7 +55,7 @@
             // btnPlay
             // 
             this.btnPlay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPlay.Location = new System.Drawing.Point(602, 467);
+            this.btnPlay.Location = new System.Drawing.Point(631, 515);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(108, 32);
             this.btnPlay.TabIndex = 0;
@@ -116,23 +114,6 @@
             this.lblVolumen.TabIndex = 7;
             this.lblVolumen.Text = "100%";
             // 
-            // btnCargar
-            // 
-            this.btnCargar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCargar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCargar.ImageLocation = "D:\\Users\\Tutoz\\Desktop\\Programacion\\Pad de sonido\\Pad de sonido\\bin\\Debug\\ico\\bus" +
-    "car.png";
-            this.btnCargar.InitialImage = global::Pad_de_sonido.Properties.Resources.buscar;
-            this.btnCargar.Location = new System.Drawing.Point(678, 515);
-            this.btnCargar.Name = "btnCargar";
-            this.btnCargar.Size = new System.Drawing.Size(32, 32);
-            this.btnCargar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnCargar.TabIndex = 9;
-            this.btnCargar.TabStop = false;
-            this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
-            this.btnCargar.MouseLeave += new System.EventHandler(this.mouseLeave);
-            this.btnCargar.MouseHover += new System.EventHandler(this.mouseHover);
-            // 
             // pctTroll
             // 
             this.pctTroll.ImageLocation = "D:\\Users\\Tutoz\\Desktop\\Programacion\\Pad de sonido\\Pad de sonido\\bin\\Debug\\ico\\tro" +
@@ -188,7 +169,7 @@
             this.btnExplorador.ImageLocation = "D:\\Users\\Tutoz\\Desktop\\Programacion\\Pad de sonido\\Pad de sonido\\bin\\Debug\\ico\\bus" +
     "car.png";
             this.btnExplorador.InitialImage = global::Pad_de_sonido.Properties.Resources.buscar;
-            this.btnExplorador.Location = new System.Drawing.Point(640, 514);
+            this.btnExplorador.Location = new System.Drawing.Point(640, 454);
             this.btnExplorador.Name = "btnExplorador";
             this.btnExplorador.Size = new System.Drawing.Size(32, 32);
             this.btnExplorador.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -227,7 +208,7 @@
             this.btnEditar.ImageLocation = "D:\\Users\\Tutoz\\Desktop\\Programacion\\Pad de sonido\\Pad de sonido\\bin\\Debug\\ico\\aud" +
     "acity.png";
             this.btnEditar.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnEditar.InitialImage")));
-            this.btnEditar.Location = new System.Drawing.Point(602, 514);
+            this.btnEditar.Location = new System.Drawing.Point(678, 454);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(32, 32);
             this.btnEditar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -259,7 +240,6 @@
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnExplorador);
             this.Controls.Add(this.lblTitulo);
-            this.Controls.Add(this.btnCargar);
             this.Controls.Add(this.lblVolumen);
             this.Controls.Add(this.trcVolumen);
             this.Controls.Add(this.lstSonidos);
@@ -272,7 +252,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EL TROLEAINADOR 5000";
             ((System.ComponentModel.ISupportInitialize)(this.trcVolumen)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCargar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctTroll)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmrContador)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctBoton)).EndInit();
@@ -292,7 +271,6 @@
         private System.Windows.Forms.ListBox lstSonidos;
         private System.Windows.Forms.TrackBar trcVolumen;
         private System.Windows.Forms.Label lblVolumen;
-        private System.Windows.Forms.PictureBox btnCargar;
         private System.Windows.Forms.PictureBox pctTroll;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.NumericUpDown nmrContador;

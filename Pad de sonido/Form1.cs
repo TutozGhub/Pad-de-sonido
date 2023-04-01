@@ -138,6 +138,13 @@ namespace Pad_de_sonido
             }
         }
 
+        public void refresh()
+        {
+            cargaLista(cmbCarpeta.Text);
+            cargaCarpetas();
+            cmbCarpeta.SelectedIndex = 0;
+        }
+
         #endregion
         public Form1()
         {
@@ -187,9 +194,7 @@ namespace Pad_de_sonido
             }
             lblVolumen.Text = trcVolumen.Value + "%";
             #endregion
-            cargaCarpetas();
-            cmbCarpeta.SelectedIndex = 0;
-            cargaLista(cmbCarpeta.Text);
+            refresh();
             try { lstSonidos.SelectedIndex = 0; } catch { }
         }
 
@@ -226,18 +231,6 @@ namespace Pad_de_sonido
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
-            }
-        }
-
-        private void btnCargar_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                string filePath = "";
-                filePath = openFileDialog.FileName;
-                File.Move(filePath, path + openFileDialog.SafeFileName);
-                cargaLista(cmbCarpeta.Text);
             }
         }
 
@@ -343,7 +336,7 @@ namespace Pad_de_sonido
 
         private void pctTroll_Click(object sender, EventArgs e)
         {
-            cargaLista(cmbCarpeta.Text);
+            refresh();
         }
     }
 }
