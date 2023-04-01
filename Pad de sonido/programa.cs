@@ -25,6 +25,8 @@ namespace Pad_de_sonido
     public partial class programa : Form
     {
         #region variables
+        string VERSION = "1.2.0";
+
         WaveOutCapabilities capabilities;
         string path = Application.StartupPath + @"\son\"; //La ruta de los sonidos
         string rutaAudacity, rutaArchivo; //La ruta del audacity y el sonido
@@ -143,19 +145,28 @@ namespace Pad_de_sonido
             cargaLista(cmbCarpeta.Text);
             cargaCarpetas();
             cmbCarpeta.SelectedIndex = 0;
-        } 
+        }
 
         public void audacity_dir() //Invoca una ventana para definir el directorio del Audacity
         {
-            rutaAudacity = Interaction.InputBox("Ingrese la direccion del audacity");
-            if (rutaAudacity != "")
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                using (StreamWriter sw = new StreamWriter("audacity_direct.txt"))
+                // Establecer las propiedades del cuadro de diálogo
+                openFileDialog.InitialDirectory = "C:\\";
+                openFileDialog.Filter = "Archivos ejecutables (*.exe)|*.exe|Todos los archivos (*.*)|*.*";
+                openFileDialog.FilterIndex = 1;
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK) // Si el usuario selecciona un archivo
                 {
-                    sw.WriteLine(rutaAudacity);
+                    rutaAudacity = openFileDialog.FileName; // Obtener la ubicación del archivo seleccionado
+                    using (StreamWriter sw = new StreamWriter("audacity_direct.txt"))
+                    {
+                        sw.WriteLine(rutaAudacity);
+                    }
                 }
             }
-        } 
+        }
 
         #endregion
         public programa()
@@ -251,11 +262,6 @@ namespace Pad_de_sonido
             this.Close();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            Process.Start("explorer.exe", path);
-        }
-
         private void mouseLeave(object sender, EventArgs e)
         {
             ((PictureBox)sender).BorderStyle = BorderStyle.None;
@@ -309,7 +315,12 @@ namespace Pad_de_sonido
             rutaArchivo = $@"{archivos[lstSonidos.SelectedIndex]}";
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void abrirDirectorioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("explorer.exe", path);
+        }
+
+        private void tsmEditarAudio_Click(object sender, EventArgs e)
         {
 
             #region carga de audacity
@@ -337,10 +348,14 @@ namespace Pad_de_sonido
             #endregion
         }
 
-        private void btnConfig_Click(object sender, EventArgs e)
+        private void tsmCambiarDirectorio_Click(object sender, EventArgs e)
         {
-            Form cfg = new config();
-            cfg.ShowDialog();
+            audacity_dir();
+        }
+
+        private void tsmAcercaDe_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"Troleainador 5000 v{VERSION}\nSoftware crado por Agustin Fizzano");
         }
 
         private void mouseHover(object sender, EventArgs e)

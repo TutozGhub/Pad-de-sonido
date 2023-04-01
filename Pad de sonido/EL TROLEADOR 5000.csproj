@@ -109,12 +109,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="config.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="config.Designer.cs">
-      <DependentUpon>config.cs</DependentUpon>
-    </Compile>
     <Compile Include="programa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,9 +117,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="config.resx">
-      <DependentUpon>config.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="programa.resx">
       <DependentUpon>programa.cs</DependentUpon>
     </EmbeddedResource>

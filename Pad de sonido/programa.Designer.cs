@@ -38,26 +38,29 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.nmrContador = new System.Windows.Forms.NumericUpDown();
             this.pctBoton = new System.Windows.Forms.PictureBox();
-            this.btnExplorador = new System.Windows.Forms.PictureBox();
             this.cmbCarpeta = new System.Windows.Forms.ComboBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.btnEditar = new System.Windows.Forms.PictureBox();
             this.grpFiltros = new System.Windows.Forms.GroupBox();
-            this.btnConfig = new System.Windows.Forms.PictureBox();
+            this.mnsMenu = new System.Windows.Forms.MenuStrip();
+            this.tsmArchivo = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAbrirDirectorio = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAudacity = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmEditarAudio = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmCambiarDirectorio = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAyuda = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmAcercaDe = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.trcVolumen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctTroll)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmrContador)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctBoton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnExplorador)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).BeginInit();
             this.grpFiltros.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnConfig)).BeginInit();
+            this.mnsMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnPlay
             // 
             this.btnPlay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPlay.Location = new System.Drawing.Point(631, 515);
+            this.btnPlay.Location = new System.Drawing.Point(631, 526);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(108, 32);
             this.btnPlay.TabIndex = 0;
@@ -69,7 +72,7 @@
             // 
             this.cmbDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDevice.FormattingEnabled = true;
-            this.cmbDevice.Location = new System.Drawing.Point(100, 76);
+            this.cmbDevice.Location = new System.Drawing.Point(100, 92);
             this.cmbDevice.Name = "cmbDevice";
             this.cmbDevice.Size = new System.Drawing.Size(232, 21);
             this.cmbDevice.TabIndex = 1;
@@ -100,7 +103,7 @@
             this.trcVolumen.Maximum = 200;
             this.trcVolumen.Name = "trcVolumen";
             this.trcVolumen.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trcVolumen.Size = new System.Drawing.Size(45, 331);
+            this.trcVolumen.Size = new System.Drawing.Size(45, 329);
             this.trcVolumen.TabIndex = 6;
             this.trcVolumen.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trcVolumen.Value = 100;
@@ -110,7 +113,7 @@
             // 
             this.lblVolumen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblVolumen.AutoSize = true;
-            this.lblVolumen.Location = new System.Drawing.Point(715, 104);
+            this.lblVolumen.Location = new System.Drawing.Point(715, 103);
             this.lblVolumen.Name = "lblVolumen";
             this.lblVolumen.Size = new System.Drawing.Size(33, 13);
             this.lblVolumen.TabIndex = 7;
@@ -120,7 +123,7 @@
             // 
             this.pctTroll.ImageLocation = "D:\\Users\\Tutoz\\Desktop\\Programacion\\Pad de sonido\\Pad de sonido\\bin\\Debug\\ico\\tro" +
     "ll.png";
-            this.pctTroll.Location = new System.Drawing.Point(18, 21);
+            this.pctTroll.Location = new System.Drawing.Point(18, 37);
             this.pctTroll.Name = "pctTroll";
             this.pctTroll.Size = new System.Drawing.Size(76, 76);
             this.pctTroll.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -133,7 +136,7 @@
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(100, 21);
+            this.lblTitulo.Location = new System.Drawing.Point(100, 37);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(232, 52);
             this.lblTitulo.TabIndex = 11;
@@ -154,7 +157,7 @@
             this.pctBoton.ImageLocation = "D:\\Users\\Tutoz\\Desktop\\Programacion\\Pad de sonido\\Pad de sonido\\bin\\Debug\\ico\\Sel" +
     "f-destruction.png";
             this.pctBoton.InitialImage = ((System.Drawing.Image)(resources.GetObject("pctBoton.InitialImage")));
-            this.pctBoton.Location = new System.Drawing.Point(625, 21);
+            this.pctBoton.Location = new System.Drawing.Point(625, 37);
             this.pctBoton.Name = "pctBoton";
             this.pctBoton.Size = new System.Drawing.Size(76, 76);
             this.pctBoton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -163,23 +166,6 @@
             this.pctBoton.Click += new System.EventHandler(this.pctBoton_Click);
             this.pctBoton.MouseLeave += new System.EventHandler(this.mouseLeave);
             this.pctBoton.MouseHover += new System.EventHandler(this.mouseHover);
-            // 
-            // btnExplorador
-            // 
-            this.btnExplorador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExplorador.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExplorador.ImageLocation = "D:\\Users\\Tutoz\\Desktop\\Programacion\\Pad de sonido\\Pad de sonido\\bin\\Debug\\ico\\bus" +
-    "car.png";
-            this.btnExplorador.InitialImage = global::Pad_de_sonido.Properties.Resources.buscar;
-            this.btnExplorador.Location = new System.Drawing.Point(640, 454);
-            this.btnExplorador.Name = "btnExplorador";
-            this.btnExplorador.Size = new System.Drawing.Size(32, 32);
-            this.btnExplorador.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnExplorador.TabIndex = 14;
-            this.btnExplorador.TabStop = false;
-            this.btnExplorador.Click += new System.EventHandler(this.pictureBox1_Click);
-            this.btnExplorador.MouseLeave += new System.EventHandler(this.mouseLeave);
-            this.btnExplorador.MouseHover += new System.EventHandler(this.mouseHover);
             // 
             // cmbCarpeta
             // 
@@ -203,62 +189,95 @@
             this.txtBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyDown);
             this.txtBuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyUp);
             // 
-            // btnEditar
-            // 
-            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditar.ImageLocation = "D:\\Users\\Tutoz\\Desktop\\Programacion\\Pad de sonido\\Pad de sonido\\bin\\Debug\\ico\\aud" +
-    "acity.png";
-            this.btnEditar.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnEditar.InitialImage")));
-            this.btnEditar.Location = new System.Drawing.Point(678, 454);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(32, 32);
-            this.btnEditar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnEditar.TabIndex = 17;
-            this.btnEditar.TabStop = false;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            this.btnEditar.MouseLeave += new System.EventHandler(this.mouseLeave);
-            this.btnEditar.MouseHover += new System.EventHandler(this.mouseHover);
-            // 
             // grpFiltros
             // 
             this.grpFiltros.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.grpFiltros.Controls.Add(this.txtBuscar);
             this.grpFiltros.Controls.Add(this.cmbCarpeta);
             this.grpFiltros.Controls.Add(this.nmrContador);
-            this.grpFiltros.Location = new System.Drawing.Point(12, 459);
+            this.grpFiltros.Location = new System.Drawing.Point(12, 470);
             this.grpFiltros.Name = "grpFiltros";
             this.grpFiltros.Size = new System.Drawing.Size(178, 88);
             this.grpFiltros.TabIndex = 18;
             this.grpFiltros.TabStop = false;
             this.grpFiltros.Text = "Filtros";
             // 
-            // btnConfig
+            // mnsMenu
             // 
-            this.btnConfig.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnConfig.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConfig.Image = ((System.Drawing.Image)(resources.GetObject("btnConfig.Image")));
-            this.btnConfig.ImageLocation = "";
-            this.btnConfig.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnConfig.InitialImage")));
-            this.btnConfig.Location = new System.Drawing.Point(707, 12);
-            this.btnConfig.Name = "btnConfig";
-            this.btnConfig.Size = new System.Drawing.Size(32, 32);
-            this.btnConfig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnConfig.TabIndex = 19;
-            this.btnConfig.TabStop = false;
-            this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
-            this.btnConfig.MouseLeave += new System.EventHandler(this.mouseLeave);
-            this.btnConfig.MouseHover += new System.EventHandler(this.mouseHover);
+            this.mnsMenu.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.mnsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmArchivo,
+            this.tsmAudacity,
+            this.tsmAyuda});
+            this.mnsMenu.Location = new System.Drawing.Point(0, 0);
+            this.mnsMenu.Name = "mnsMenu";
+            this.mnsMenu.Size = new System.Drawing.Size(751, 24);
+            this.mnsMenu.TabIndex = 20;
+            this.mnsMenu.Text = "menuStrip1";
             // 
-            // Form1
+            // tsmArchivo
+            // 
+            this.tsmArchivo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmAbrirDirectorio});
+            this.tsmArchivo.Name = "tsmArchivo";
+            this.tsmArchivo.Size = new System.Drawing.Size(60, 20);
+            this.tsmArchivo.Text = "Archivo";
+            // 
+            // tsmAbrirDirectorio
+            // 
+            this.tsmAbrirDirectorio.Image = global::Pad_de_sonido.Properties.Resources.buscar;
+            this.tsmAbrirDirectorio.Name = "tsmAbrirDirectorio";
+            this.tsmAbrirDirectorio.Size = new System.Drawing.Size(186, 22);
+            this.tsmAbrirDirectorio.Text = "Directorio de sonidos";
+            this.tsmAbrirDirectorio.Click += new System.EventHandler(this.abrirDirectorioToolStripMenuItem_Click);
+            // 
+            // tsmAudacity
+            // 
+            this.tsmAudacity.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmEditarAudio,
+            this.tsmCambiarDirectorio});
+            this.tsmAudacity.Name = "tsmAudacity";
+            this.tsmAudacity.Size = new System.Drawing.Size(66, 20);
+            this.tsmAudacity.Text = "Audacity";
+            // 
+            // tsmEditarAudio
+            // 
+            this.tsmEditarAudio.Image = ((System.Drawing.Image)(resources.GetObject("tsmEditarAudio.Image")));
+            this.tsmEditarAudio.Name = "tsmEditarAudio";
+            this.tsmEditarAudio.Size = new System.Drawing.Size(173, 22);
+            this.tsmEditarAudio.Text = "Editar audio";
+            this.tsmEditarAudio.Click += new System.EventHandler(this.tsmEditarAudio_Click);
+            // 
+            // tsmCambiarDirectorio
+            // 
+            this.tsmCambiarDirectorio.Image = global::Pad_de_sonido.Properties.Resources.buscar;
+            this.tsmCambiarDirectorio.Name = "tsmCambiarDirectorio";
+            this.tsmCambiarDirectorio.Size = new System.Drawing.Size(173, 22);
+            this.tsmCambiarDirectorio.Text = "Cambiar directorio";
+            this.tsmCambiarDirectorio.Click += new System.EventHandler(this.tsmCambiarDirectorio_Click);
+            // 
+            // tsmAyuda
+            // 
+            this.tsmAyuda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmAcercaDe});
+            this.tsmAyuda.Name = "tsmAyuda";
+            this.tsmAyuda.Size = new System.Drawing.Size(53, 20);
+            this.tsmAyuda.Text = "Ayuda";
+            // 
+            // tsmAcercaDe
+            // 
+            this.tsmAcercaDe.Name = "tsmAcercaDe";
+            this.tsmAcercaDe.Size = new System.Drawing.Size(126, 22);
+            this.tsmAcercaDe.Text = "Acerca de";
+            this.tsmAcercaDe.Click += new System.EventHandler(this.tsmAcercaDe_Click);
+            // 
+            // programa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(751, 570);
-            this.Controls.Add(this.btnConfig);
             this.Controls.Add(this.grpFiltros);
-            this.Controls.Add(this.btnEditar);
-            this.Controls.Add(this.btnExplorador);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.lblVolumen);
             this.Controls.Add(this.trcVolumen);
@@ -267,19 +286,20 @@
             this.Controls.Add(this.btnPlay);
             this.Controls.Add(this.pctTroll);
             this.Controls.Add(this.pctBoton);
+            this.Controls.Add(this.mnsMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.MainMenuStrip = this.mnsMenu;
+            this.Name = "programa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EL TROLEAINADOR 5000";
             ((System.ComponentModel.ISupportInitialize)(this.trcVolumen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctTroll)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmrContador)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctBoton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnExplorador)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).EndInit();
             this.grpFiltros.ResumeLayout(false);
             this.grpFiltros.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnConfig)).EndInit();
+            this.mnsMenu.ResumeLayout(false);
+            this.mnsMenu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -296,12 +316,17 @@
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.NumericUpDown nmrContador;
         private System.Windows.Forms.PictureBox pctBoton;
-        private System.Windows.Forms.PictureBox btnExplorador;
         private System.Windows.Forms.ComboBox cmbCarpeta;
         private System.Windows.Forms.TextBox txtBuscar;
-        private System.Windows.Forms.PictureBox btnEditar;
         private System.Windows.Forms.GroupBox grpFiltros;
-        private System.Windows.Forms.PictureBox btnConfig;
+        private System.Windows.Forms.MenuStrip mnsMenu;
+        private System.Windows.Forms.ToolStripMenuItem tsmArchivo;
+        private System.Windows.Forms.ToolStripMenuItem tsmAbrirDirectorio;
+        private System.Windows.Forms.ToolStripMenuItem tsmAudacity;
+        private System.Windows.Forms.ToolStripMenuItem tsmEditarAudio;
+        private System.Windows.Forms.ToolStripMenuItem tsmCambiarDirectorio;
+        private System.Windows.Forms.ToolStripMenuItem tsmAyuda;
+        private System.Windows.Forms.ToolStripMenuItem tsmAcercaDe;
     }
 }
 
