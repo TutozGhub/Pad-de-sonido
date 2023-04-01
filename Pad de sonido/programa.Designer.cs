@@ -1,6 +1,6 @@
 ﻿namespace Pad_de_sonido
 {
-    partial class Form1
+    partial class programa
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(programa));
             this.btnPlay = new System.Windows.Forms.Button();
             this.cmbDevice = new System.Windows.Forms.ComboBox();
             this.lstSonidos = new System.Windows.Forms.ListBox();
@@ -43,6 +43,7 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnEditar = new System.Windows.Forms.PictureBox();
             this.grpFiltros = new System.Windows.Forms.GroupBox();
+            this.btnConfig = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.trcVolumen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctTroll)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmrContador)).BeginInit();
@@ -50,6 +51,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnExplorador)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).BeginInit();
             this.grpFiltros.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnConfig)).BeginInit();
             this.SuspendLayout();
             // 
             // btnPlay
@@ -152,7 +154,7 @@
             this.pctBoton.ImageLocation = "D:\\Users\\Tutoz\\Desktop\\Programacion\\Pad de sonido\\Pad de sonido\\bin\\Debug\\ico\\Sel" +
     "f-destruction.png";
             this.pctBoton.InitialImage = ((System.Drawing.Image)(resources.GetObject("pctBoton.InitialImage")));
-            this.pctBoton.Location = new System.Drawing.Point(634, 21);
+            this.pctBoton.Location = new System.Drawing.Point(625, 21);
             this.pctBoton.Name = "pctBoton";
             this.pctBoton.Size = new System.Drawing.Size(76, 76);
             this.pctBoton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -231,11 +233,29 @@
             this.grpFiltros.TabStop = false;
             this.grpFiltros.Text = "Filtros";
             // 
+            // btnConfig
+            // 
+            this.btnConfig.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnConfig.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfig.Image = ((System.Drawing.Image)(resources.GetObject("btnConfig.Image")));
+            this.btnConfig.ImageLocation = "";
+            this.btnConfig.InitialImage = ((System.Drawing.Image)(resources.GetObject("btnConfig.InitialImage")));
+            this.btnConfig.Location = new System.Drawing.Point(707, 12);
+            this.btnConfig.Name = "btnConfig";
+            this.btnConfig.Size = new System.Drawing.Size(32, 32);
+            this.btnConfig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnConfig.TabIndex = 19;
+            this.btnConfig.TabStop = false;
+            this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
+            this.btnConfig.MouseLeave += new System.EventHandler(this.mouseLeave);
+            this.btnConfig.MouseHover += new System.EventHandler(this.mouseHover);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(751, 570);
+            this.Controls.Add(this.btnConfig);
             this.Controls.Add(this.grpFiltros);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnExplorador);
@@ -259,6 +279,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnEditar)).EndInit();
             this.grpFiltros.ResumeLayout(false);
             this.grpFiltros.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnConfig)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,6 +301,7 @@
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.PictureBox btnEditar;
         private System.Windows.Forms.GroupBox grpFiltros;
+        private System.Windows.Forms.PictureBox btnConfig;
     }
 }
 

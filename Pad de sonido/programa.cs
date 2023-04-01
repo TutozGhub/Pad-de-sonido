@@ -22,7 +22,7 @@ using Microsoft.VisualBasic;
 
 namespace Pad_de_sonido
 {
-    public partial class Form1 : Form
+    public partial class programa : Form
     {
         #region variables
         WaveOutCapabilities capabilities;
@@ -138,15 +138,27 @@ namespace Pad_de_sonido
             }
         }
 
-        public void refresh()
+        public void refresh() //Refresca la lista de sonidos y de carpetas
         {
             cargaLista(cmbCarpeta.Text);
             cargaCarpetas();
             cmbCarpeta.SelectedIndex = 0;
-        }
+        } 
+
+        public void audacity_dir() //Invoca una ventana para definir el directorio del Audacity
+        {
+            rutaAudacity = Interaction.InputBox("Ingrese la direccion del audacity");
+            if (rutaAudacity != "")
+            {
+                using (StreamWriter sw = new StreamWriter("audacity_direct.txt"))
+                {
+                    sw.WriteLine(rutaAudacity);
+                }
+            }
+        } 
 
         #endregion
-        public Form1()
+        public programa()
         {
 
             InitializeComponent();
@@ -302,7 +314,7 @@ namespace Pad_de_sonido
 
             #region carga de audacity
             try
-            {
+            { //Abre el audio en el Audacity y de no ser posible pide un directorio valido
                 if (lstSonidos.Items.Count > 0)
                 {
                     using (StreamReader sr = new StreamReader("audacity_direct.txt"))
@@ -320,13 +332,15 @@ namespace Pad_de_sonido
             }
             catch
             {
-                using (StreamWriter sw = new StreamWriter("audacity_direct.txt"))
-                {
-                    rutaAudacity = Interaction.InputBox("Ingrese la direccion del audacity");
-                    sw.WriteLine(rutaAudacity);
-                }
+                audacity_dir();
             }
             #endregion
+        }
+
+        private void btnConfig_Click(object sender, EventArgs e)
+        {
+            Form cfg = new config();
+            cfg.ShowDialog();
         }
 
         private void mouseHover(object sender, EventArgs e)
