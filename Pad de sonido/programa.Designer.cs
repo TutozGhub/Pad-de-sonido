@@ -49,6 +49,9 @@
             this.tsmCambiarDirectorio = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAyuda = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAcercaDe = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmLinkedin = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmGithub = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnStop = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trcVolumen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctTroll)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmrContador)).BeginInit();
@@ -91,6 +94,7 @@
             this.lstSonidos.Name = "lstSonidos";
             this.lstSonidos.Size = new System.Drawing.Size(700, 329);
             this.lstSonidos.TabIndex = 4;
+            this.lstSonidos.SelectedIndexChanged += new System.EventHandler(this.lstSonidos_SelectedIndexChanged);
             this.lstSonidos.SelectedValueChanged += new System.EventHandler(this.lstSonidos_SelectedValueChanged);
             this.lstSonidos.DoubleClick += new System.EventHandler(this.lstSonidos_DoubleClick);
             this.lstSonidos.KeyUp += new System.Windows.Forms.KeyEventHandler(this.lstSonidos_KeyUp);
@@ -227,7 +231,8 @@
             // 
             this.tsmAbrirDirectorio.Image = global::Pad_de_sonido.Properties.Resources.buscar;
             this.tsmAbrirDirectorio.Name = "tsmAbrirDirectorio";
-            this.tsmAbrirDirectorio.Size = new System.Drawing.Size(186, 22);
+            this.tsmAbrirDirectorio.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
+            this.tsmAbrirDirectorio.Size = new System.Drawing.Size(226, 22);
             this.tsmAbrirDirectorio.Text = "Directorio de sonidos";
             this.tsmAbrirDirectorio.Click += new System.EventHandler(this.abrirDirectorioToolStripMenuItem_Click);
             // 
@@ -244,7 +249,8 @@
             // 
             this.tsmEditarAudio.Image = ((System.Drawing.Image)(resources.GetObject("tsmEditarAudio.Image")));
             this.tsmEditarAudio.Name = "tsmEditarAudio";
-            this.tsmEditarAudio.Size = new System.Drawing.Size(173, 22);
+            this.tsmEditarAudio.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.tsmEditarAudio.Size = new System.Drawing.Size(179, 22);
             this.tsmEditarAudio.Text = "Editar audio";
             this.tsmEditarAudio.Click += new System.EventHandler(this.tsmEditarAudio_Click);
             // 
@@ -252,24 +258,51 @@
             // 
             this.tsmCambiarDirectorio.Image = global::Pad_de_sonido.Properties.Resources.buscar;
             this.tsmCambiarDirectorio.Name = "tsmCambiarDirectorio";
-            this.tsmCambiarDirectorio.Size = new System.Drawing.Size(173, 22);
+            this.tsmCambiarDirectorio.Size = new System.Drawing.Size(179, 22);
             this.tsmCambiarDirectorio.Text = "Cambiar directorio";
             this.tsmCambiarDirectorio.Click += new System.EventHandler(this.tsmCambiarDirectorio_Click);
             // 
             // tsmAyuda
             // 
             this.tsmAyuda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmAcercaDe});
+            this.tsmAcercaDe,
+            this.tsmLinkedin,
+            this.tsmGithub});
             this.tsmAyuda.Name = "tsmAyuda";
             this.tsmAyuda.Size = new System.Drawing.Size(53, 20);
             this.tsmAyuda.Text = "Ayuda";
             // 
             // tsmAcercaDe
             // 
+            this.tsmAcercaDe.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsmAcercaDe.Name = "tsmAcercaDe";
             this.tsmAcercaDe.Size = new System.Drawing.Size(126, 22);
             this.tsmAcercaDe.Text = "Acerca de";
             this.tsmAcercaDe.Click += new System.EventHandler(this.tsmAcercaDe_Click);
+            // 
+            // tsmLinkedin
+            // 
+            this.tsmLinkedin.Name = "tsmLinkedin";
+            this.tsmLinkedin.Size = new System.Drawing.Size(126, 22);
+            this.tsmLinkedin.Text = "Linkedin";
+            this.tsmLinkedin.Click += new System.EventHandler(this.tsmLinkedin_Click);
+            // 
+            // tsmGithub
+            // 
+            this.tsmGithub.Name = "tsmGithub";
+            this.tsmGithub.Size = new System.Drawing.Size(126, 22);
+            this.tsmGithub.Text = "GitHub";
+            this.tsmGithub.Click += new System.EventHandler(this.tsmGithub_Click);
+            // 
+            // btnStop
+            // 
+            this.btnStop.Location = new System.Drawing.Point(560, 526);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(65, 32);
+            this.btnStop.TabIndex = 21;
+            this.btnStop.Text = "Detener";
+            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // programa
             // 
@@ -277,6 +310,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(751, 570);
+            this.Controls.Add(this.btnStop);
             this.Controls.Add(this.grpFiltros);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.lblVolumen);
@@ -327,6 +361,9 @@
         private System.Windows.Forms.ToolStripMenuItem tsmCambiarDirectorio;
         private System.Windows.Forms.ToolStripMenuItem tsmAyuda;
         private System.Windows.Forms.ToolStripMenuItem tsmAcercaDe;
+        private System.Windows.Forms.ToolStripMenuItem tsmGithub;
+        private System.Windows.Forms.ToolStripMenuItem tsmLinkedin;
+        private System.Windows.Forms.Button btnStop;
     }
 }
 

@@ -25,7 +25,9 @@ namespace Pad_de_sonido
     public partial class programa : Form
     {
         #region variables
-        string VERSION = "1.2.0";
+        string VERSION = "1.2.1";
+        string GITHUB = "www.github.com/TutozGhub";
+        string LINKENIN = "www.linkedin.com/in/agustin-fizzano/";
 
         WaveOutCapabilities capabilities;
         string path = Application.StartupPath + @"\son\"; //La ruta de los sonidos
@@ -34,6 +36,9 @@ namespace Pad_de_sonido
         List<string> archivos = new List<string>(); //Lista para los files
         List<string> carpetas = new List<string>(); //Lista para las folders
         List<WaveOutCapabilities> devices = new List<WaveOutCapabilities>(); // Lista de los devices
+
+        List<WaveOutEvent> soundInstance = new List<WaveOutEvent>(); // Lista de cada instancia de sonido
+        List<AudioFileReader> soundFiles = new List<AudioFileReader>(); // Lista de cada instancia de sonido
         #endregion
 
         #region funciones
@@ -112,15 +117,18 @@ namespace Pad_de_sonido
 
                 /*Selecciona el archivo de la listbox y lo ejecuta
                     con el volumen y por el canal deceado */
-                var audioFile = rutaArchivo;
-                AudioFileReader sonido = new AudioFileReader(audioFile);
-                WaveOutEvent device = new WaveOutEvent();
+                string audioFile = rutaArchivo;
 
+                AudioFileReader soundFile = new AudioFileReader(audioFile);
+                WaveOutEvent device = new WaveOutEvent();
                 device.DeviceNumber = canal;
-                device.Init(sonido);
-                sonido.Volume = ((float)trcVolumen.Value) / 100;
+                device.Init(soundFile);
+                soundFile.Volume = ((float)trcVolumen.Value) / 100;
+                soundInstance.Add(device);
+                soundFiles.Add(soundFile);
                 device.Play();
             }
+
 
         }
 
@@ -145,6 +153,33 @@ namespace Pad_de_sonido
             cargaLista(cmbCarpeta.Text);
             cargaCarpetas();
             cmbCarpeta.SelectedIndex = 0;
+        }
+
+        public void stop(string accion = "parar")
+        {
+            for (int i = 0; i < soundInstance.Count; i++)
+            {
+                if (soundFiles[i].CurrentTime.Ticks > soundFiles[i].TotalTime.Ticks * 0.95 && accion == "limpiar")
+                {
+                    soundInstance[i].Stop();
+                    soundInstance[i].Dispose();
+                    soundFiles[i].Close();
+                    soundFiles[i].Dispose();
+                    soundInstance.Remove(soundInstance[i]);
+                    soundFiles.Remove(soundFiles[i]);
+                }
+                else if (accion == "parar")
+                {
+                    soundInstance[i].Stop();
+                    soundInstance[i].Dispose();
+                }
+            }
+
+            if (accion == "parar")
+            {
+                soundFiles.Clear();
+                soundInstance.Clear();
+            }
         }
 
         public void audacity_dir() //Invoca una ventana para definir el directorio del Audacity
@@ -242,6 +277,10 @@ namespace Pad_de_sonido
         private void trcVolumen_Scroll(object sender, EventArgs e)
         {
             save();
+            for (int i = 0; i < soundFiles.Count; i++)
+            {
+                soundFiles[i].Volume = ((float)trcVolumen.Value) / 100;
+            }
             lblVolumen.Text = trcVolumen.Value + "%";
         }
 
@@ -355,7 +394,32 @@ namespace Pad_de_sonido
 
         private void tsmAcercaDe_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"Troleainador 5000 v{VERSION}\nSoftware crado por Agustin Fizzano");
+            MessageBox.Show($"Troleainador 5000 v{VERSION}\nSoftware creado por Agustin Fizzano");
+        }
+
+        private void tsmGithub_Click(object sender, EventArgs e)
+        {
+            Process.Start(GITHUB);
+        }
+
+        private void tsmLinkedin_Click(object sender, EventArgs e)
+        {
+            Process.Start(LINKENIN);
+        }
+
+        private void tsmStartUp_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            stop();
+        }
+
+        private void lstSonidos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            stop("limpiar");
         }
 
         private void mouseHover(object sender, EventArgs e)
