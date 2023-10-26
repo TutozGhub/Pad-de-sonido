@@ -16,6 +16,8 @@ namespace Logica
         #region Atributos
         private int canal;
         private int volumen;
+        private int height;
+        private int width;
         private WaveOutCapabilities capacidades;
         private List<WaveOutCapabilities> canales = new List<WaveOutCapabilities>(); // Lista de los canales
         private readonly string config = "Config.cfg";
@@ -33,6 +35,16 @@ namespace Logica
         {
             get => volumen;
             set => volumen = value;
+        }
+        public int Height
+        {
+            get => height;
+            set => height = value;
+        }
+        public int Width
+        {
+            get => width;
+            set => width = value;
         }
         public string DirectorioAudio
         {
@@ -62,9 +74,11 @@ namespace Logica
             {
                 sw.WriteLine(canal); //canal
                 sw.WriteLine(volumen); //volumen
+                sw.WriteLine(height); //Alto Form
+                sw.WriteLine(width); //Ancho Form
             }
         }
-        public void GetConfig(ref ComboBox cmb, ref TrackBar trc)
+        public void GetConfig(ref ComboBox cmb, ref TrackBar trc, Form frm)
         {
             try
             {
@@ -91,6 +105,16 @@ namespace Logica
                         volumen = 100;
                         trc.Value = 100;
                     }
+                    try
+                    {
+                        frm.Height = int.Parse(sr.ReadLine());
+                        frm.Width = int.Parse(sr.ReadLine());
+                    }
+                    catch
+                    {
+                        frm.Height = 653;
+                        frm.Width = 458;
+                    }
                 }
             }
             catch (IOException)
@@ -99,6 +123,8 @@ namespace Logica
                 {
                     sw.WriteLine(-1); //canal
                     sw.WriteLine(100); //volumen
+                    sw.WriteLine(653); //Alto Form
+                    sw.WriteLine(458); //Ancho Form
                 }
             }
         }

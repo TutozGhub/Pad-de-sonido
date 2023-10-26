@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -33,7 +34,7 @@ namespace Pad_de_sonido
             InitializeComponent();
             this.Icon = Resources.Icono;
             cmbSalida.Items.AddRange (cfg.GetCanales());
-            cfg.GetConfig(ref cmbSalida, ref trcVolumen);
+            cfg.GetConfig(ref cmbSalida, ref trcVolumen, this);
             archivos.Refresh(ref cmbCategoria, ref lstArchivos);
             lblVolumen.Text = trcVolumen.Value + "%";
             load = true;
@@ -41,7 +42,6 @@ namespace Pad_de_sonido
 
         private void trcVolumen_Scroll(object sender, EventArgs e)
         {
-            cfg.Canal = cmbSalida.SelectedIndex;
             cfg.Volumen = trcVolumen.Value;
             listaSonidos.Volumen(trcVolumen.Value);
             cfg.Save();
@@ -121,7 +121,6 @@ namespace Pad_de_sonido
             if (load)
             {
                 cfg.Canal = cmbSalida.SelectedIndex;
-                cfg.Volumen = trcVolumen.Value;
                 cfg.Save();
             }
         }
@@ -141,5 +140,14 @@ namespace Pad_de_sonido
             Process.Start(GITHUB);
         }
 
+        private void Pad_Resize(object sender, EventArgs e)
+        {
+            cfg.Height = this.Height;
+            cfg.Width = this.Width;
+            if (load)
+            {
+                cfg.Save();
+            }
+        }
     }
 }

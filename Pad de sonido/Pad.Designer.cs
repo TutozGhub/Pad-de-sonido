@@ -235,21 +235,21 @@
             // acercaDeToolStripMenuItem1
             // 
             this.acercaDeToolStripMenuItem1.Name = "acercaDeToolStripMenuItem1";
-            this.acercaDeToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.acercaDeToolStripMenuItem1.Size = new System.Drawing.Size(126, 22);
             this.acercaDeToolStripMenuItem1.Text = "Acerca de";
             this.acercaDeToolStripMenuItem1.Click += new System.EventHandler(this.acercaDeToolStripMenuItem1_Click);
             // 
             // linkedinToolStripMenuItem
             // 
             this.linkedinToolStripMenuItem.Name = "linkedinToolStripMenuItem";
-            this.linkedinToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.linkedinToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.linkedinToolStripMenuItem.Text = "Linkedin";
             this.linkedinToolStripMenuItem.Click += new System.EventHandler(this.linkedinToolStripMenuItem_Click);
             // 
             // gitHubToolStripMenuItem
             // 
             this.gitHubToolStripMenuItem.Name = "gitHubToolStripMenuItem";
-            this.gitHubToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gitHubToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.gitHubToolStripMenuItem.Text = "GitHub";
             this.gitHubToolStripMenuItem.Click += new System.EventHandler(this.gitHubToolStripMenuItem_Click);
             // 
@@ -332,6 +332,7 @@
             this.Name = "Pad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pad de sonido";
+            this.Resize += new System.EventHandler(this.Pad_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.nmrTimer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trcVolumen)).EndInit();
             this.menuStrip1.ResumeLayout(false);
