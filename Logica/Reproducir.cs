@@ -21,8 +21,9 @@ namespace Logica
         }
         #endregion
         #region Metodos
-        public void ReproducirAudio(Configuraciones cfg, ListaSonidos lst, ListBox lstArchivos) //Reproduce un sonido
+        public async Task ReproducirAudio(Configuraciones cfg, ListaSonidos lst, ListBox lstArchivos, decimal timer) //Reproduce un sonido
         {
+            await Task.Delay((int)timer * 1000);
             if (lstArchivos.Items.Count > 0)
             {
                 using (AudioFileReader sonido = new AudioFileReader(directorioSonido))
@@ -30,7 +31,7 @@ namespace Logica
                     WaveOutEvent reproductor = new WaveOutEvent();
                     reproductor.DeviceNumber = cfg.Canal;
                     reproductor.Init(sonido);
-                    sonido.Volume = ((float)(cfg.Volumen)) / 100;
+                    reproductor.Volume = ((float)(cfg.Volumen)) / 100;
                     reproductor.Play();
                     lst.AddAudio(reproductor);
                 }

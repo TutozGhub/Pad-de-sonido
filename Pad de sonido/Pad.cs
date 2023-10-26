@@ -1,11 +1,14 @@
 ﻿using Logica;
 using NAudio.CoreAudioApi;
 using NAudio.Wave;
+using Pad_de_sonido.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,17 +23,15 @@ namespace Pad_de_sonido
         Arcivos archivos = new Arcivos();
         ListaSonidos listaSonidos = new ListaSonidos();
 
-        string VERSION = "2.0";
         string GITHUB = "www.github.com/TutozGhub";
-        string LINKENIN = "www.linkedin.com/in/agustin-fizzano/";
-        string rutaAudacity, rutaArchivo; //La ruta del audacity y el sonido
+        string LINKEDIN = "www.linkedin.com/in/agustin-fizzano/";
 
-        int count = 0; //contador
         bool load = false;
         #endregion
         public Pad()
         {
             InitializeComponent();
+            this.Icon = Resources.Icono;
             cmbSalida.Items.AddRange (cfg.GetCanales());
             cfg.GetConfig(ref cmbSalida, ref trcVolumen);
             archivos.Refresh(ref cmbCategoria, ref lstArchivos);
@@ -40,18 +41,16 @@ namespace Pad_de_sonido
 
         private void trcVolumen_Scroll(object sender, EventArgs e)
         {
-            //for (int i = 0; i < soundFiles.Count; i++)
-            //{
-            //    soundFiles[i].Volume = ((float)trcVolumen.Value) / 100;
-            //}
             cfg.Canal = cmbSalida.SelectedIndex;
             cfg.Volumen = trcVolumen.Value;
+            listaSonidos.Volumen(trcVolumen.Value);
             cfg.Save();
             lblVolumen.Text = trcVolumen.Value + "%";
         }
 
         private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
+            archivos.Filtro = "";
             archivos.Carpeta = cmbCategoria.Text;
             archivos.GetArchivos(ref lstArchivos);
         }
@@ -60,7 +59,7 @@ namespace Pad_de_sonido
         {
             Reproducir play = new Reproducir();
             play.DirectorioSonido = archivos.Archivos[lstArchivos.SelectedIndex];
-            play.ReproducirAudio(cfg, listaSonidos, lstArchivos);
+            Task reproducir = play.ReproducirAudio(cfg, listaSonidos, lstArchivos, nmrTimer.Value);
         }
 
         private void lstArchivos_SelectedIndexChanged(object sender, EventArgs e)
@@ -84,6 +83,39 @@ namespace Pad_de_sonido
             cfg.OpenAudacity(lstArchivos.Items.Count);
         }
 
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            cmbCategoria.Text = "Todo";
+            archivos.Carpeta = "Todo";
+            archivos.Filtro = txtBuscar.Text;
+            archivos.GetArchivos(ref lstArchivos);
+            txtBuscar.Clear();
+            lstArchivos.Focus();
+        }
+
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnBuscar_Click(sender, e);
+                e.Handled = true;
+            }
+        }
+
+        private void lstArchivos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnPlay_Click(sender, e);
+                e.Handled = true;
+            }
+        }
+
+        private void audiosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("explorer.exe", archivos.Directorio);
+        }
+
         private void cmbSalida_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (load)
@@ -93,5 +125,21 @@ namespace Pad_de_sonido
                 cfg.Save();
             }
         }
+
+        private void acercaDeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Software desarrollado por Agustin Fizzano");
+        }
+
+        private void linkedinToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start(LINKEDIN);
+        }
+
+        private void gitHubToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start(GITHUB);
+        }
+
     }
 }

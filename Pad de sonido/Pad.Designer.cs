@@ -46,6 +46,9 @@
             this.configuracionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.audacityDirectorioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.acercaDeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.linkedinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gitHubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnPlay = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
@@ -71,6 +74,8 @@
             this.lstArchivos.Size = new System.Drawing.Size(362, 368);
             this.lstArchivos.TabIndex = 11;
             this.lstArchivos.SelectedIndexChanged += new System.EventHandler(this.lstArchivos_SelectedIndexChanged);
+            this.lstArchivos.DoubleClick += new System.EventHandler(this.btnPlay_Click);
+            this.lstArchivos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lstArchivos_KeyPress);
             // 
             // txtBuscar
             // 
@@ -81,6 +86,7 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(322, 20);
             this.txtBuscar.TabIndex = 0;
+            this.txtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscar_KeyPress);
             // 
             // nmrTimer
             // 
@@ -147,7 +153,7 @@
             this.trcVolumen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.trcVolumen.Location = new System.Drawing.Point(397, 189);
-            this.trcVolumen.Maximum = 200;
+            this.trcVolumen.Maximum = 100;
             this.trcVolumen.Name = "trcVolumen";
             this.trcVolumen.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.trcVolumen.Size = new System.Drawing.Size(45, 360);
@@ -192,6 +198,7 @@
             this.audiosToolStripMenuItem.Name = "audiosToolStripMenuItem";
             this.audiosToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.audiosToolStripMenuItem.Text = "Audios";
+            this.audiosToolStripMenuItem.Click += new System.EventHandler(this.audiosToolStripMenuItem_Click);
             // 
             // audacityToolStripMenuItem
             // 
@@ -217,9 +224,34 @@
             // 
             // acercaDeToolStripMenuItem
             // 
+            this.acercaDeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.acercaDeToolStripMenuItem1,
+            this.linkedinToolStripMenuItem,
+            this.gitHubToolStripMenuItem});
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.acercaDeToolStripMenuItem.Text = "Acerca de";
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.acercaDeToolStripMenuItem.Text = "Ayuda";
+            // 
+            // acercaDeToolStripMenuItem1
+            // 
+            this.acercaDeToolStripMenuItem1.Name = "acercaDeToolStripMenuItem1";
+            this.acercaDeToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.acercaDeToolStripMenuItem1.Text = "Acerca de";
+            this.acercaDeToolStripMenuItem1.Click += new System.EventHandler(this.acercaDeToolStripMenuItem1_Click);
+            // 
+            // linkedinToolStripMenuItem
+            // 
+            this.linkedinToolStripMenuItem.Name = "linkedinToolStripMenuItem";
+            this.linkedinToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.linkedinToolStripMenuItem.Text = "Linkedin";
+            this.linkedinToolStripMenuItem.Click += new System.EventHandler(this.linkedinToolStripMenuItem_Click);
+            // 
+            // gitHubToolStripMenuItem
+            // 
+            this.gitHubToolStripMenuItem.Name = "gitHubToolStripMenuItem";
+            this.gitHubToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gitHubToolStripMenuItem.Text = "GitHub";
+            this.gitHubToolStripMenuItem.Click += new System.EventHandler(this.gitHubToolStripMenuItem_Click);
             // 
             // archivoToolStripMenuItem
             // 
@@ -261,6 +293,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(30, 30);
             this.btnBuscar.TabIndex = 12;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // pctLogo
             // 
@@ -328,9 +361,12 @@
         private System.Windows.Forms.ListBox lstArchivos;
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem audiosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem audacityToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configuracionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem audacityDirectorioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem audacityToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem linkedinToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gitHubToolStripMenuItem;
     }
 }

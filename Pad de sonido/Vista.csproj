@@ -61,7 +61,8 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>logo.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
@@ -115,30 +116,21 @@
     <Compile Include="Pad.Designer.cs">
       <DependentUpon>Pad.cs</DependentUpon>
     </Compile>
-    <Compile Include="programa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="programa.Designer.cs">
-      <DependentUpon>programa.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Pad.resx">
       <DependentUpon>Pad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="programa.resx">
-      <DependentUpon>programa.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="packages.config" />
     <None Include="Pad de sonido_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
@@ -189,7 +181,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="logo.ico" />
     <None Include="Resources\Logo.png" />
     <None Include="Resources\Stop.png" />
     <None Include="Resources\Play.png" />
@@ -200,6 +191,9 @@
       <Project>{421aa76d-1e01-408a-ac31-f2d61c024f9a}</Project>
       <Name>Logica</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icono.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

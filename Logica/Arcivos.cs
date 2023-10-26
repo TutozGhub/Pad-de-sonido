@@ -42,7 +42,6 @@ namespace Logica
         #region Metodos
         public void GetArchivos(ref ListBox lstAudios) //Carga la lista de canciones en la listbox
         {
-            lstAudios.Items.Clear();
             try
             {
                 lstAudios.Items.Clear();
