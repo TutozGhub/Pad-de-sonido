@@ -106,17 +106,17 @@ namespace Pad_de_sonido
         {
             if (lstSonidos.Items.Count > 0)
             {
-                count = Convert.ToInt16(nmrContador.Value);
-                while (count > 0) //Si el contador esta activado entra en el bucle
-                {
-                    Console.WriteLine(count);
-                    count--;
-                    nmrContador.Refresh();
-                    Thread.Sleep(1000);
-                }
+                //while (count > 0) //Si el contador esta activado entra en el bucle
+                //{
+                //    Console.WriteLine(count);
+                //    count--;
+                //    nmrContador.Refresh();
+                //    Thread.Sleep(1000);
+                //}
 
                 /*Selecciona el archivo de la listbox y lo ejecuta
                     con el volumen y por el canal deceado */
+
                 string audioFile = rutaArchivo;
 
                 AudioFileReader soundFile = new AudioFileReader(audioFile);
@@ -258,14 +258,7 @@ namespace Pad_de_sonido
 
         private void btnWtf_Click(object sender, EventArgs e)
         {
-            try
-            {
-                sonido();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
+            tmrContador.Start();
         }
 
         private void cmbDevice_SelectedIndexChanged(object sender, EventArgs e)
@@ -420,6 +413,33 @@ namespace Pad_de_sonido
         private void lstSonidos_SelectedIndexChanged(object sender, EventArgs e)
         {
             stop("limpiar");
+        }
+
+        private void tmrContador_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                sonido();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            tmrContador.Stop();
+
+        }
+
+        private void nmrContador_ValueChanged(object sender, EventArgs e)
+        {
+            if (nmrContador.Value > 0)
+            {
+                count = Convert.ToInt16(nmrContador.Value * 1000);
+                tmrContador.Interval = count;
+            }
+            else
+            {
+                tmrContador.Interval = 1;
+            }
         }
 
         private void mouseHover(object sender, EventArgs e)

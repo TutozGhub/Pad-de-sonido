@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(programa));
             this.btnPlay = new System.Windows.Forms.Button();
             this.cmbDevice = new System.Windows.Forms.ComboBox();
@@ -41,7 +42,7 @@
             this.cmbCarpeta = new System.Windows.Forms.ComboBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.grpFiltros = new System.Windows.Forms.GroupBox();
-            this.mnsMenu = new System.Windows.Forms.MenuStrip();
+            this.btnStop = new System.Windows.Forms.Button();
             this.tsmArchivo = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAbrirDirectorio = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAudacity = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,7 +52,8 @@
             this.tsmAcercaDe = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmLinkedin = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmGithub = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnStop = new System.Windows.Forms.Button();
+            this.mnsMenu = new System.Windows.Forms.MenuStrip();
+            this.tmrContador = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.trcVolumen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctTroll)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmrContador)).BeginInit();
@@ -153,6 +155,7 @@
             this.nmrContador.Name = "nmrContador";
             this.nmrContador.Size = new System.Drawing.Size(39, 20);
             this.nmrContador.TabIndex = 12;
+            this.nmrContador.ValueChanged += new System.EventHandler(this.nmrContador_ValueChanged);
             // 
             // pctBoton
             // 
@@ -160,7 +163,7 @@
             this.pctBoton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pctBoton.ImageLocation = "D:\\Users\\Tutoz\\Desktop\\Programacion\\Pad de sonido\\Pad de sonido\\bin\\Debug\\ico\\Sel" +
     "f-destruction.png";
-            this.pctBoton.InitialImage = ((System.Drawing.Image)(resources.GetObject("pctBoton.InitialImage")));
+            this.pctBoton.InitialImage = null;
             this.pctBoton.Location = new System.Drawing.Point(625, 37);
             this.pctBoton.Name = "pctBoton";
             this.pctBoton.Size = new System.Drawing.Size(76, 76);
@@ -206,18 +209,15 @@
             this.grpFiltros.TabStop = false;
             this.grpFiltros.Text = "Filtros";
             // 
-            // mnsMenu
+            // btnStop
             // 
-            this.mnsMenu.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.mnsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmArchivo,
-            this.tsmAudacity,
-            this.tsmAyuda});
-            this.mnsMenu.Location = new System.Drawing.Point(0, 0);
-            this.mnsMenu.Name = "mnsMenu";
-            this.mnsMenu.Size = new System.Drawing.Size(751, 24);
-            this.mnsMenu.TabIndex = 20;
-            this.mnsMenu.Text = "menuStrip1";
+            this.btnStop.Location = new System.Drawing.Point(560, 526);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(65, 32);
+            this.btnStop.TabIndex = 21;
+            this.btnStop.Text = "Detener";
+            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // tsmArchivo
             // 
@@ -228,8 +228,7 @@
             this.tsmArchivo.Text = "Archivo";
             // 
             // tsmAbrirDirectorio
-            // 
-            this.tsmAbrirDirectorio.Image = global::Pad_de_sonido.Properties.Resources.buscar;
+            //
             this.tsmAbrirDirectorio.Name = "tsmAbrirDirectorio";
             this.tsmAbrirDirectorio.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
             this.tsmAbrirDirectorio.Size = new System.Drawing.Size(226, 22);
@@ -255,8 +254,7 @@
             this.tsmEditarAudio.Click += new System.EventHandler(this.tsmEditarAudio_Click);
             // 
             // tsmCambiarDirectorio
-            // 
-            this.tsmCambiarDirectorio.Image = global::Pad_de_sonido.Properties.Resources.buscar;
+            //
             this.tsmCambiarDirectorio.Name = "tsmCambiarDirectorio";
             this.tsmCambiarDirectorio.Size = new System.Drawing.Size(179, 22);
             this.tsmCambiarDirectorio.Text = "Cambiar directorio";
@@ -294,15 +292,23 @@
             this.tsmGithub.Text = "GitHub";
             this.tsmGithub.Click += new System.EventHandler(this.tsmGithub_Click);
             // 
-            // btnStop
+            // mnsMenu
             // 
-            this.btnStop.Location = new System.Drawing.Point(560, 526);
-            this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(65, 32);
-            this.btnStop.TabIndex = 21;
-            this.btnStop.Text = "Detener";
-            this.btnStop.UseVisualStyleBackColor = true;
-            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            this.mnsMenu.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.mnsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmArchivo,
+            this.tsmAudacity,
+            this.tsmAyuda});
+            this.mnsMenu.Location = new System.Drawing.Point(0, 0);
+            this.mnsMenu.Name = "mnsMenu";
+            this.mnsMenu.Size = new System.Drawing.Size(751, 24);
+            this.mnsMenu.TabIndex = 20;
+            this.mnsMenu.Text = "menuStrip1";
+            // 
+            // tmrContador
+            // 
+            this.tmrContador.Interval = 1;
+            this.tmrContador.Tick += new System.EventHandler(this.tmrContador_Tick);
             // 
             // programa
             // 
@@ -353,7 +359,7 @@
         private System.Windows.Forms.ComboBox cmbCarpeta;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.GroupBox grpFiltros;
-        private System.Windows.Forms.MenuStrip mnsMenu;
+        private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.ToolStripMenuItem tsmArchivo;
         private System.Windows.Forms.ToolStripMenuItem tsmAbrirDirectorio;
         private System.Windows.Forms.ToolStripMenuItem tsmAudacity;
@@ -361,9 +367,10 @@
         private System.Windows.Forms.ToolStripMenuItem tsmCambiarDirectorio;
         private System.Windows.Forms.ToolStripMenuItem tsmAyuda;
         private System.Windows.Forms.ToolStripMenuItem tsmAcercaDe;
-        private System.Windows.Forms.ToolStripMenuItem tsmGithub;
         private System.Windows.Forms.ToolStripMenuItem tsmLinkedin;
-        private System.Windows.Forms.Button btnStop;
+        private System.Windows.Forms.ToolStripMenuItem tsmGithub;
+        private System.Windows.Forms.MenuStrip mnsMenu;
+        private System.Windows.Forms.Timer tmrContador;
     }
 }
 

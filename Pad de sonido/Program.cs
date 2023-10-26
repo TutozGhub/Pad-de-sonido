@@ -16,7 +16,7 @@ namespace Pad_de_sonido
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new programa());
+            Application.Run(new Pad());
         }
     }
 }
