@@ -1,6 +1,6 @@
   # Pad-de-sonido
-Aplicación que permite reproducir sonidos en el micrófono del usuario. Esto mediante un mezclador de audio (en mi caso VoiceMeeter Potato)
-
-Esta aplicación fue creada en mi tiempo libre para uso personal, por lo que puede haber características de diseño poco intuitivo o extraño, dado que fue pensado inicialmente como algo para uso propio. Seguramente a futuro mejore la interfaz de usuario haciéndola más amigable y accesible.
-
-Este repositorio es con el fin de mostrar mis habilidades prácticas, pero si alguien desea usar esta aplicación puede hacerlo libremente.
+  
+Aplicación que permite reproducir sonidos en el micrófono del usuario. Esto mediante un mezclador de audio (VoiceMeeter Banana)
+Esta aplicación fue creada en mi tiempo libre para uso personal con el fin de mostrar mis habilidades tecnicas.
+Programada en VisualStudio con C# y .NET Framework, utilizando POO y en 2 capas Logica y Vista.
+![image](https://github.com/TutozGhub/Pad-de-sonido/assets/114877367/c3f2936c-34fc-488a-bfca-a5951cf7ffa9)
