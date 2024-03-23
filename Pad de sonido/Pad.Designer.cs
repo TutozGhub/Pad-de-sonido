@@ -54,6 +54,7 @@
             this.btnStop = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.pctLogo = new System.Windows.Forms.PictureBox();
+            this.directorioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.nmrTimer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trcVolumen)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -196,20 +197,21 @@
             // audiosToolStripMenuItem
             // 
             this.audiosToolStripMenuItem.Name = "audiosToolStripMenuItem";
-            this.audiosToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.audiosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.audiosToolStripMenuItem.Text = "Audios";
             this.audiosToolStripMenuItem.Click += new System.EventHandler(this.audiosToolStripMenuItem_Click);
             // 
             // audacityToolStripMenuItem
             // 
             this.audacityToolStripMenuItem.Name = "audacityToolStripMenuItem";
-            this.audacityToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.audacityToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.audacityToolStripMenuItem.Text = "Audacity";
             this.audacityToolStripMenuItem.Click += new System.EventHandler(this.audacityToolStripMenuItem_Click);
             // 
             // configuracionToolStripMenuItem
             // 
             this.configuracionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.directorioToolStripMenuItem,
             this.audacityDirectorioToolStripMenuItem});
             this.configuracionToolStripMenuItem.Name = "configuracionToolStripMenuItem";
             this.configuracionToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
@@ -218,7 +220,7 @@
             // audacityDirectorioToolStripMenuItem
             // 
             this.audacityDirectorioToolStripMenuItem.Name = "audacityDirectorioToolStripMenuItem";
-            this.audacityDirectorioToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.audacityDirectorioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.audacityDirectorioToolStripMenuItem.Text = "Audacity directorio";
             this.audacityDirectorioToolStripMenuItem.Click += new System.EventHandler(this.audacityDirectorioToolStripMenuItem_Click);
             // 
@@ -306,6 +308,14 @@
             this.pctLogo.Size = new System.Drawing.Size(96, 96);
             this.pctLogo.TabIndex = 21;
             this.pctLogo.TabStop = false;
+            this.pctLogo.Click += new System.EventHandler(this.pctLogo_Click);
+            // 
+            // directorioToolStripMenuItem
+            // 
+            this.directorioToolStripMenuItem.Name = "directorioToolStripMenuItem";
+            this.directorioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.directorioToolStripMenuItem.Text = "Audios directorio";
+            this.directorioToolStripMenuItem.Click += new System.EventHandler(this.directorioToolStripMenuItem_Click_1);
             // 
             // Pad
             // 
@@ -369,5 +379,6 @@
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem linkedinToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gitHubToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem directorioToolStripMenuItem;
     }
 }

@@ -21,7 +21,7 @@ namespace Pad_de_sonido
     {
         #region variables
         Configuraciones cfg = new Configuraciones();
-        Arcivos archivos = new Arcivos();
+        CD_Archivos archivos = new CD_Archivos();
         ListaSonidos listaSonidos = new ListaSonidos();
 
         string GITHUB = "www.github.com/TutozGhub";
@@ -31,10 +31,16 @@ namespace Pad_de_sonido
         #endregion
         public Pad()
         {
+            if (!cfg.EsAdministrador())
+            {
+                cfg.EjecutarComoAdministrador();
+                this.Dispose();
+            }
             InitializeComponent();
             this.Icon = Resources.Icono;
             cmbSalida.Items.AddRange (cfg.GetCanales());
-            cfg.GetConfig(ref cmbSalida, ref trcVolumen, this);
+            cfg.GetConfig(ref cmbSalida, ref trcVolumen, ref archivos, this);
+            archivos.ValidarDirectorio();
             archivos.Refresh(ref cmbCategoria, ref lstArchivos);
             lblVolumen.Text = trcVolumen.Value + "%";
             load = true;
@@ -79,8 +85,11 @@ namespace Pad_de_sonido
 
         private void audacityToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            cfg.DirectorioAudio = archivos.Archivos[lstArchivos.SelectedIndex];
-            cfg.OpenAudacity(lstArchivos.Items.Count);
+            if (lstArchivos.Items.Count > 0)
+            {
+                cfg.DirectorioAudio = archivos.Archivos[lstArchivos.SelectedIndex];
+                cfg.OpenAudacity(lstArchivos.Items.Count);
+            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -113,6 +122,7 @@ namespace Pad_de_sonido
 
         private void audiosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            archivos.ValidarDirectorio();
             Process.Start("explorer.exe", archivos.Directorio);
         }
 
@@ -148,6 +158,16 @@ namespace Pad_de_sonido
             {
                 cfg.Save();
             }
+        }
+
+        private void pctLogo_Click(object sender, EventArgs e)
+        {
+            archivos.Refresh(ref cmbCategoria, ref lstArchivos);
+        }
+
+        private void directorioToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            archivos.ModificarDirectorio();
         }
     }
 }

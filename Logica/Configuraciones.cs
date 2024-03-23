@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using NAudio.CoreAudioApi;
 using System.Diagnostics;
+using System.Security.Principal;
+using System.CodeDom.Compiler;
+using System.Reflection.Emit;
+using System.Security.Cryptography;
 
 namespace Logica
 {
@@ -76,9 +80,11 @@ namespace Logica
                 sw.WriteLine(volumen); //volumen
                 sw.WriteLine(height); //Alto Form
                 sw.WriteLine(width); //Ancho Form
+                CD_Archivos files = new CD_Archivos();
+                sw.WriteLine(files.Directorio);
             }
         }
-        public void GetConfig(ref ComboBox cmb, ref TrackBar trc, Form frm)
+        public void GetConfig(ref ComboBox cmb, ref TrackBar trc, ref CD_Archivos files, Form frm)
         {
             try
             {
@@ -115,6 +121,16 @@ namespace Logica
                         frm.Height = 653;
                         frm.Width = 458;
                     }
+                    string directorio = sr.ReadLine();
+                    if (!string.IsNullOrWhiteSpace(directorio))
+                    {
+                        files.Directorio = directorio;
+                    }
+                    else
+                    {
+                        CD_Archivos fvoid = new CD_Archivos();
+                        files.Directorio = fvoid.Directorio;
+                    }
                 }
             }
             catch (IOException)
@@ -125,6 +141,7 @@ namespace Logica
                     sw.WriteLine(100); //volumen
                     sw.WriteLine(653); //Alto Form
                     sw.WriteLine(458); //Ancho Form
+                    sw.WriteLine(""); //Directorio
                 }
             }
         }
@@ -183,6 +200,27 @@ namespace Logica
                         sw.WriteLine(audacityDir);
                     }
                 }
+            }
+        }
+        public bool EsAdministrador()
+        {
+            WindowsIdentity identidad = WindowsIdentity.GetCurrent();
+            WindowsPrincipal principal = new WindowsPrincipal(identidad);
+            return principal.IsInRole(WindowsBuiltInRole.Administrator);
+        }
+
+        public void EjecutarComoAdministrador()
+        {
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.FileName = Process.GetCurrentProcess().MainModule.FileName;
+            startInfo.Verb = "runas";
+            try
+            {
+                Process.Start(startInfo);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al intentar reiniciar la aplicación como administrador: " + ex.Message);
             }
         }
         #endregion

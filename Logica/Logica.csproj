@@ -72,7 +72,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Arcivos.cs" />
+    <Compile Include="CD_Archivos.cs" />
     <Compile Include="Configuraciones.cs" />
     <Compile Include="ListaSonidos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

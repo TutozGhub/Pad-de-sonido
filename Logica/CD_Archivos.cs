@@ -7,17 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace Logica
 {
-    public class Arcivos
+    public class CD_Archivos
     {
         #region Atributos
         private string carpeta = "Todo";
         private string filtro = "";
         private List<string> archivos = new List<string>(); //Lista para los archivos
         private List<string> carpetas = new List<string>(); //Lista para las carpetas
-        private string directorio = Application.StartupPath + @"\Audios\"; //La ruta de los sonidos
+        private static string raiz = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
+        private string directorio = raiz + @"\PDS\Audios\"; //La ruta de los sonidos
         #endregion
         #region Propiedades
         public string Carpeta
@@ -32,6 +34,7 @@ namespace Logica
         }
         public string Directorio
         {
+            set => directorio = value;
             get => directorio;
         }
         public List<string> Archivos
@@ -101,6 +104,42 @@ namespace Logica
         {
             GetCarpetas(ref cmbCarpetas);
             GetArchivos(ref lstAudios);
+        }
+        public void ValidarDirectorio()
+        {
+            try
+            {
+                if (!Directory.Exists(directorio))
+                {
+                    Directory.CreateDirectory(directorio);
+                    Console.WriteLine("La carpeta se ha creado exitosamente.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al intentar crear la carpeta: " + ex.Message);
+            }
+        }
+        public void ModificarDirectorio()
+        {
+            using (OpenFileDialog explorador = new OpenFileDialog())
+            {
+                explorador.Title = "Selecciona una carpeta";
+                explorador.CheckFileExists = false;
+                explorador.FileName = "Carpeta"; 
+                explorador.Filter = "|Folders";
+                explorador.ValidateNames = false;
+                ValidarDirectorio();
+                explorador.InitialDirectory = directorio;
+
+                DialogResult result = explorador.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    string carpeta = System.IO.Path.GetDirectoryName(explorador.FileName);
+                    directorio = carpeta;
+                }
+            }
         }
         #endregion
     }
