@@ -81,16 +81,6 @@ namespace Pad_de_sonido.Properties {
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
-        /// </summary>
-        internal static System.Drawing.Icon Icono_Blanco {
-            get {
-                object obj = ResourceManager.GetObject("Icono_Blanco", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Logo {

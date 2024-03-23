@@ -55,13 +55,13 @@
     <ManifestKeyFile>Pad de sonido_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
+    <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\Icono_Blanco.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Icono.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>Pad_de_sonido.Program</StartupObject>
@@ -71,6 +71,12 @@
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup>
+    <Win32Resource>
+    </Win32Resource>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
@@ -136,6 +142,7 @@
     </Compile>
     <EmbeddedResource Include="Pad.resx">
       <DependentUpon>Pad.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -205,9 +212,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Icono.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Icono_Blanco.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

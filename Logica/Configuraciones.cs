@@ -202,27 +202,6 @@ namespace Logica
                 }
             }
         }
-        public bool EsAdministrador()
-        {
-            WindowsIdentity identidad = WindowsIdentity.GetCurrent();
-            WindowsPrincipal principal = new WindowsPrincipal(identidad);
-            return principal.IsInRole(WindowsBuiltInRole.Administrator);
-        }
-
-        public void EjecutarComoAdministrador()
-        {
-            ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.FileName = Process.GetCurrentProcess().MainModule.FileName;
-            startInfo.Verb = "runas";
-            try
-            {
-                Process.Start(startInfo);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error al intentar reiniciar la aplicación como administrador: " + ex.Message);
-            }
-        }
         #endregion
     }
 }

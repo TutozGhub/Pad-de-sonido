@@ -44,6 +44,7 @@
             this.audiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.audacityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuracionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.directorioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.audacityDirectorioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,7 +55,6 @@
             this.btnStop = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.pctLogo = new System.Windows.Forms.PictureBox();
-            this.directorioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.nmrTimer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trcVolumen)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -197,14 +197,14 @@
             // audiosToolStripMenuItem
             // 
             this.audiosToolStripMenuItem.Name = "audiosToolStripMenuItem";
-            this.audiosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.audiosToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.audiosToolStripMenuItem.Text = "Audios";
             this.audiosToolStripMenuItem.Click += new System.EventHandler(this.audiosToolStripMenuItem_Click);
             // 
             // audacityToolStripMenuItem
             // 
             this.audacityToolStripMenuItem.Name = "audacityToolStripMenuItem";
-            this.audacityToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.audacityToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.audacityToolStripMenuItem.Text = "Audacity";
             this.audacityToolStripMenuItem.Click += new System.EventHandler(this.audacityToolStripMenuItem_Click);
             // 
@@ -217,10 +217,17 @@
             this.configuracionToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
             this.configuracionToolStripMenuItem.Text = "Configuracion";
             // 
+            // directorioToolStripMenuItem
+            // 
+            this.directorioToolStripMenuItem.Name = "directorioToolStripMenuItem";
+            this.directorioToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.directorioToolStripMenuItem.Text = "Audios directorio";
+            this.directorioToolStripMenuItem.Click += new System.EventHandler(this.directorioToolStripMenuItem_Click_1);
+            // 
             // audacityDirectorioToolStripMenuItem
             // 
             this.audacityDirectorioToolStripMenuItem.Name = "audacityDirectorioToolStripMenuItem";
-            this.audacityDirectorioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.audacityDirectorioToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.audacityDirectorioToolStripMenuItem.Text = "Audacity directorio";
             this.audacityDirectorioToolStripMenuItem.Click += new System.EventHandler(this.audacityDirectorioToolStripMenuItem_Click);
             // 
@@ -264,63 +271,68 @@
             // btnPlay
             // 
             this.btnPlay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPlay.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnPlay.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPlay.BackgroundImage")));
             this.btnPlay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPlay.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPlay.Location = new System.Drawing.Point(352, 571);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(78, 30);
             this.btnPlay.TabIndex = 17;
-            this.btnPlay.UseVisualStyleBackColor = true;
+            this.btnPlay.UseVisualStyleBackColor = false;
             this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
             // 
             // btnStop
             // 
             this.btnStop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnStop.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnStop.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnStop.BackgroundImage")));
             this.btnStop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnStop.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStop.Location = new System.Drawing.Point(311, 572);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(30, 30);
             this.btnStop.TabIndex = 16;
-            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.UseVisualStyleBackColor = false;
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // btnBuscar
             // 
             this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscar.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnBuscar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuscar.BackgroundImage")));
             this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Location = new System.Drawing.Point(344, 145);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(30, 30);
             this.btnBuscar.TabIndex = 12;
-            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // pctLogo
             // 
-            this.pctLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pctLogo.BackgroundImage")));
+            this.pctLogo.BackgroundImage = global::Pad_de_sonido.Properties.Resources.Logo;
             this.pctLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pctLogo.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pctLogo.ErrorImage = null;
             this.pctLogo.InitialImage = null;
             this.pctLogo.Location = new System.Drawing.Point(24, 42);
             this.pctLogo.Name = "pctLogo";
-            this.pctLogo.Size = new System.Drawing.Size(96, 96);
+            this.pctLogo.Size = new System.Drawing.Size(174, 96);
+            this.pctLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pctLogo.TabIndex = 21;
             this.pctLogo.TabStop = false;
             this.pctLogo.Click += new System.EventHandler(this.pctLogo_Click);
-            // 
-            // directorioToolStripMenuItem
-            // 
-            this.directorioToolStripMenuItem.Name = "directorioToolStripMenuItem";
-            this.directorioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.directorioToolStripMenuItem.Text = "Audios directorio";
-            this.directorioToolStripMenuItem.Click += new System.EventHandler(this.directorioToolStripMenuItem_Click_1);
             // 
             // Pad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(442, 614);
             this.Controls.Add(this.pctLogo);
             this.Controls.Add(this.lblVolumen);
@@ -337,6 +349,7 @@
             this.Controls.Add(this.nmrTimer);
             this.Controls.Add(this.cmbCategoria);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(458, 458);
             this.Name = "Pad";

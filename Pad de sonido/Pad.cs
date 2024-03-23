@@ -31,11 +31,6 @@ namespace Pad_de_sonido
         #endregion
         public Pad()
         {
-            if (!cfg.EsAdministrador())
-            {
-                cfg.EjecutarComoAdministrador();
-                this.Dispose();
-            }
             InitializeComponent();
             this.Icon = Resources.Icono;
             cmbSalida.Items.AddRange (cfg.GetCanales());
