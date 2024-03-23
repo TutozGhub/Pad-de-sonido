@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vista", "Pad de sonido\Vist
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logica", "Logica\Logica.csproj", "{421AA76D-1E01-408A-AC31-F2D61C024F9A}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{65331A4F-4AF9-4718-809B-C66B2F661176}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,8 @@ Global
 		{421AA76D-1E01-408A-AC31-F2D61C024F9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{421AA76D-1E01-408A-AC31-F2D61C024F9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{421AA76D-1E01-408A-AC31-F2D61C024F9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65331A4F-4AF9-4718-809B-C66B2F661176}.Debug|Any CPU.ActiveCfg = Debug
+		{65331A4F-4AF9-4718-809B-C66B2F661176}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
